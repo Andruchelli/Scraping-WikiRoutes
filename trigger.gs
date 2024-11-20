@@ -1,17 +1,17 @@
-function remind() { // функция для отправки напоминаний в Телеграм (столбец G)
+function remind() { // функция для отправки напоминаний в телеграм (столбец G)
   const book_1 = SpreadsheetApp.getActive();
-  const sheet_1 = book_1.getSheetByName('Links');
-  const data_1 = sheet_1.getDataRange().getValues(); // в переменную data записываем все данные с листа
-
+  const sheet_1 = book_1.getSheetByName("Links");
+  const data_1 = sheet_1.getDataRange().getValues(); // в переменную data_1 записываем все данные с листа
+  
   data_1.shift(); // убираем заголовки (первую строку)
   //console.log(data_1)
 
-  const clientIdChat_1 = "///////";
+  const clientIdChat_1 = "///";
   const todayDate_1 = Utilities.formatDate(new Date(), "GMT+3", "dd.MM.yyyy"); // текущая дата
   //console.log(todayDate_1)
   const todayDate_unix_1 = new Date(todayDate_1.split(".").reverse().join(".")).getTime(); // текущая дата в формате unix time
   //console.log(todayDate_unix_1)
-
+  
   for (i = 0; i < data_1.length; i++) {
     if (data_1[i][6] == '') {
 
@@ -26,13 +26,13 @@ function remind() { // функция для отправки напоминан
 
       }
     }
-
+    
   }
 
 }
 
 function sendText_1(clientIdChat_1, text) { // функция для отправки сообщения в телеграм
-  const token_1 = "///////////"; // токен чат-группы в телеграме
+  const token_1 = "///"; // токен чат-группы в телеграме
   let data_T1 = {
     method: 'sendMessage',
     chat_id: String(clientIdChat_1),
